@@ -12,3 +12,5 @@ for dirname, dirs, files in os.walk('.'):
 
 for w in sorted(filelist, key=filelist.get, reverse=True):
     print w, filelist[w]
+
+# TODO: screen for counts > 1 and write to a .txt file
