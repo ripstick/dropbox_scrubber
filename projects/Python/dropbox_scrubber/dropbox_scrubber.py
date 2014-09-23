@@ -1,13 +1,15 @@
 #!/usr/bin/env
-# adapted from www.thinkpython.com example
 import os
 
-count = 0
-for (dirname, dirs, files) in os.walk('.'):
-  for filename in files:
-    count += 1
-    thefile = os.path.join(dirname,filename)
-    thesize = str(os.path.getsize(thefile)/1000) + 'k'
-    print thesize , thefile
+filelist= {}
 
-print 'Files: ', count
+for dirname, dirs, files in os.walk('.'):
+  for filename in files:
+      if filelist.has_key(filename):
+          filelist[filename] +=1
+      else:
+           filelist[filename] = 1
+
+# print OrderedDict(sorted(filelist.items(), key=lambda t: t[0]))
+for w in sorted(filelist, key=filelist.get, reverse=True):
+    print w, filelist[w]
