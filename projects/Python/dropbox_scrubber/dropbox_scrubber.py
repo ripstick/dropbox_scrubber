@@ -10,4 +10,6 @@ for dirname, dirs, files in os.walk('.'):
       else:
            filelist[filename] = 1
 
-print filelist
+# print OrderedDict(sorted(filelist.items(), key=lambda t: t[0]))
+for w in sorted(filelist, key=filelist.get, reverse=True):
+    print w, filelist[w]
