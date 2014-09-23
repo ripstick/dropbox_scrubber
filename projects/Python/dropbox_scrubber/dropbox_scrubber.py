@@ -1,10 +1,13 @@
 #!/usr/bin/env
 import os
 
-dup_files = {}
+dupfiles = {}
 
 for dirname, dirs, files in os.walk(','):
   for filename in files:
-    dup_files[filename] = dup_files.get(filename, 0) + 1
+    if filename in dup_files:
+      dupfiles[filename] +=1
+    else:
+      dupfiles[filename] = 1
 
-print dup_files
+print dupfiles
